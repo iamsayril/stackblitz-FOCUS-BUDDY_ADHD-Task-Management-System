@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Buddy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <header>
+    <div class="logo-block">
+      <div class="logo">Focus Buddy</div>
+      <div class="tagline">ADHD Task Management System</div>
+    </div>
+    <div class="stats">
+      <div class="stat-chip">
+        <span class="stat-num total" id="stat-total">-</span>
+        <span class="stat-label">Total</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-num done" id="stat-done">-</span>
+        <span class="stat-label">Done</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-num pend" id="stat-pend">-</span>
+        <span class="stat-label">Pending</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Connection Banner -->
+  <div id="conn-banner">
+    Cannot reach the API. The server may be waking up - try again in 30 seconds.
+  </div>
+
+  <!-- Add Task -->
+  <div class="add-card">
+    <div class="add-card-title">+ New Task</div>
+    <div class="form-row">
+      <div class="form-col">
+        <input type="text" id="new-title" placeholder="What do you need to focus on?">
+        <input type="text" id="new-desc"  placeholder="Details (optional)">
+      </div>
+      <button class="btn btn-primary" onclick="addTask()" style="align-self:flex-end;height:42px;">
+        Add Task
+      </button>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="search-wrap">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search tasks..." oninput="onSearch(this.value)">
+    </div>
+    <div class="filter-btns">
+      <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
+      <button class="filter-btn"        onclick="setFilter('pending', this)">Pending</button>
+      <button class="filter-btn"        onclick="setFilter('completed', this)">Done</button>
+    </div>
+  </div>
+
+  <!-- Task List -->
+  <div class="list-header">
+    <span class="list-label" id="list-label">All tasks</span>
+    <span class="list-count" id="list-count"></span>
+  </div>
+
+  <div id="task-list">
+    <div class="skeleton"></div>
+    <div class="skeleton" style="height:56px;opacity:.6"></div>
+    <div class="skeleton" style="height:56px;opacity:.3"></div>
+  </div>
+
+</div>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
