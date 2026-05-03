@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Focus Buddy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -43,9 +42,9 @@
     <div class="form-row">
       <div class="form-col">
         <input type="text" id="new-title" placeholder="What do you need to focus on?">
-        <input type="text" id="new-desc"  placeholder="Details (optional)">
+        <textarea id="new-desc" placeholder="Details (optional)" rows="3"></textarea>
       </div>
-      <button class="btn btn-primary" onclick="addTask()" style="align-self:flex-end;height:42px;">
+      <button class="btn btn-primary" onclick="addTask()">
         Add Task
       </button>
     </div>
@@ -72,8 +71,8 @@
 
   <div id="task-list">
     <div class="skeleton"></div>
-    <div class="skeleton" style="height:56px;opacity:.6"></div>
-    <div class="skeleton" style="height:56px;opacity:.3"></div>
+    <div class="skeleton skeleton-short skeleton-muted"></div>
+    <div class="skeleton skeleton-short skeleton-faint"></div>
   </div>
 
 </div>
